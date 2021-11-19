@@ -4,11 +4,12 @@
 
 class Manager
 {
-    protected function dbConnect()
+    //protected 
+    public function dbConnect()
     {
         try {
             $db = new PDO('mysql:host=localhost;dbname=p4;charset=utf8', 'root', 'root');
-            return $db;
+            return "connexion ok";
         }
         catch(Exception $e)
         {
