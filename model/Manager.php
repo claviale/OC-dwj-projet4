@@ -4,7 +4,7 @@
 
 class Manager
 {
-    //protected 
+    //protected et pas publique quand les class direct seront faites
     public function dbConnect()
     {
         try {
