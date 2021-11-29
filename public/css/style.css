@@ -1,2 +1,55 @@
 
+/* ctrl + f pour mettre à jour les changements css */
 
+/* ----- header ----- */
+
+li {
+    
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav-link {
+    color: #4F7FA3;
+}
+
+/* ----- body ----- */
+
+.titles {
+    padding-top: 120px;
+    margin-bottom: 50px;
+    height: 700px;
+    width: 100%;
+    background-image: url(../images/alaska.jpg);
+    background-position: center;
+    background-size: cover;
+
+}
+
+.description {
+    margin-top: 180px;
+    height: 100%;
+    padding: 20px;
+    width: 55%;
+    
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.6);
+
+}
+
+h3 {
+    color: #4F7FA3;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* ----- footer ----- */
+
+footer {
+    margin-top: 50px;
+    border-top: 1px solid #4F7FA3;
+}

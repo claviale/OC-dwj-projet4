@@ -1,42 +1,48 @@
-<?php $title = 'Mon blog'; ?>
+<?php $title = "Mon blog"; ?>
 
 <?php ob_start(); ?>
 
-<div class="container">
-    <div class="row">
-        <div class="chapitres col-10 mx-auto">
-            <h1>Billet simple pour l'Alaska !</h1>
-            <p>Derniers chapitres:</p>
+<section class="titles">
+    <div class="container">
+        <div class="row bg-img">
+            <div class="col-10 mx-auto description">
+                <h1>Billet simple pour l'Alaska !</h1>
+                <h4>Tous les chapitres</h4>
+            </div>
         </div>
-    </div>
-</div>  
+    </div> 
+</section>
 
 
 <?php
 while ($data = $posts->fetch())
 {
 ?>
+<section class="content">
     <div class="container">
         <div class="row">
             <div class="news col-10 mx-auto">
                 <h3>
-                    <?= htmlspecialchars($data['title']) ?>
-                    <em>le <?= $data['creation_date_fr'] ?></em>
+                    <?= htmlspecialchars($data["title"]) ?>
+                    <em>le <?= $data["creation_date_fr"] ?></em>
                 </h3>
                 
                 <p>
-                    <?= nl2br(htmlspecialchars($data['content'])) ?>
+                    <?= nl2br(htmlspecialchars($data["content"])) ?>
                     <br />
-                    <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+                    <em><a href="index.php?action=post&amp;id=<?= $data["id"] ?>">Commentaires</a></em>
                 </p>
             </div>
         </div>
     </div>
+</section>
+
 <?php
 }
 $posts->closeCursor();
 ?>
-<?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php $content = ob_get_clean (); ?>
+
+<?php require("template.php"); ?>
 
