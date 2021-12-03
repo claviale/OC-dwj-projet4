@@ -7,7 +7,7 @@
                     <a class="navbar-brand ms-sm-5" href="index.php">
                         <img src="public/images/logo.png" width="32" height="32" alt="Site logo">        
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div id="navbarContent" class="collapse navbar-collapse">
