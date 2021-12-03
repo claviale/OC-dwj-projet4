@@ -1,10 +1,11 @@
 
-/* ctrl + f pour mettre à jour les changements css */
+/* ctrl + f5 pour mettre à jour les changements css */
+
+/* couleur des titres : #4F7FA3 */
 
 /* ----- header ----- */
 
 li {
-    
     font-size: 18px;
     font-weight: 500;
 }
@@ -12,6 +13,7 @@ li {
 .nav-link {
     color: #4F7FA3;
 }
+
 
 /* ----- body ----- */
 
@@ -50,6 +52,17 @@ h3 {
 /* ----- footer ----- */
 
 footer {
-    margin-top: 50px;
-    border-top: 1px solid #4F7FA3;
+    background-color: #4F7FA3;
 }
+
+.footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer li {
+    font-size: 16px;
+    font-weight: normal;
+}
+
