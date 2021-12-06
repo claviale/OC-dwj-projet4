@@ -4,6 +4,17 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
+
+function home()
+{
+    require("view/frontend/home.php");
+}
+
+function biography()
+{
+    require("view/frontend/biography.php");
+}
+
 function listPosts()
 {
     $postManager = new PostManager(); // Création d'un objet

@@ -3,8 +3,14 @@ require('controller/frontend.php');
 
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+        if ($_GET['action'] == 'home') {
+            home();
+        }
+        elseif ($_GET['action'] == 'listPosts') {
             listPosts();
+        }
+        elseif ($_GET['action'] == 'biography') {
+            biography();
         }
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -29,7 +35,7 @@ try {
         }
     }
     else {
-        listPosts();
+        home();
     }
 }
 catch(Exception $e) {

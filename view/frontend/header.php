@@ -13,13 +13,13 @@
                     <div id="navbarContent" class="collapse navbar-collapse">
                         <ul class="navbar-nav ms-auto">    
                             <li class="nav-item active mx-sm-4 ">
-                                <a class="nav-link" href="index.php">Accueil</a>
+                                <a class="nav-link" href="index.php?action=home">Accueil</a>
                             </li>
                             <li class="nav-item mx-sm-4">
-                                <a class="nav-link" href="#chapitres">Chapitres</a>
+                                <a class="nav-link" href="index.php?action=listPosts">Chapitres</a>
                             </li>
                             <li class="nav-item mx-sm-4">
-                                <a class="nav-link" href="#bio">Biographie</a>
+                                <a class="nav-link" href="index.php?action=biography">Biographie</a>
                             </li>
                         </ul>
                     </div>
