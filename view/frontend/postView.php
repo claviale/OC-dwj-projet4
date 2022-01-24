@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-10 mx-auto description">
-                <h1>Billet simple pour l'Alaska !</h1>
+                <h1>Billet simple pour l'Alaska</h1>
                     <h4>
                         <?= htmlspecialchars($post["title"]) ?> 
                     </h4>

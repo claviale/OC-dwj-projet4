@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row bg-img">
             <div class="col-10 mx-auto description">
-                <h1>Billet simple pour l'Alaska !</h1>
+                <h1>Billet simple pour l'Alaska</h1>
                 <h4>Tous les chapitres</h4>
             </div>
         </div>
