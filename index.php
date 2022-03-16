@@ -33,6 +33,29 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'adminPassword') {
+            adminPassword();
+        }
+        elseif ($_GET['action'] == 'connexion') {
+            if (isset($_POST['user']) && isset($_POST['password'])) {
+                if (!empty($_POST['user']) && !empty($_POST['password'])) {
+                    adminAccess($_POST['user'], $_POST['password']);
+                }
+                else {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
+        
+        }
+        elseif (($_GET['action'] == 'administration')) {
+            if (isset($_SESSION['utilisateur'])) {
+                displayAdminInterface();
+            } else {
+                echo "Mot de passe incorrect";
+            }
+        }
+
+
     }
     else {
         home();

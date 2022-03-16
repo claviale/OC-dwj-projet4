@@ -10,7 +10,7 @@
             </div>
             <div class="col text-center my-auto">
                 <h6>Accès administrateur :</h6>
-                <a href="#" class="text-white">Se connecter</a>
+                <a href="index.php?action=adminPassword" class="text-white">Se connecter</a>
             </div>
         </div>
     </div>

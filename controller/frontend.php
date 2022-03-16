@@ -1,8 +1,11 @@
 <?php
 
+session_start(); 
+
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/AdminManager.php');
 
 
 function home()
@@ -48,3 +51,33 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+
+function adminPassword()
+{
+    require("view/frontend/login.php");
+}
+
+function adminAccess($user, $password)
+{
+    $adminManager = new AdminManager();
+    $dataUser = $adminManager->getAdmin($user, $password);
+    
+    var_dump($dataUser);
+
+    if ($dataUser === false) {
+        throw new Exception("Connexion impossible !");
+    }
+    else {
+        $_SESSION['utilisateur'] = $dataUser['id'];
+        header('Location: index.php?action=administration');
+    }
+    
+    
+}
+
+function displayAdminInterface() {
+    require("view/backend/admin.php");
+  }
+  
+
