@@ -69,7 +69,6 @@ function checkLogin()
     }
     else {
         throw new Exception("L'identifiant et/ou le mot de passe sont incorrects.");
-        //mettre l'echo en variable pour l'appeler dans la vue
     }
     
 }
