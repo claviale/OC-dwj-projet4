@@ -1,4 +1,4 @@
-<footer class="footer py-4 mt-5 text-white"> 
+<footer class="footer py-4 mt-5 text-white "> 
    <div class="container">
         <div class="row">
             <div class="col text-center my-auto">
@@ -10,7 +10,7 @@
             </div>
             <div class="col text-center my-auto">
                 <h6>Accès administrateur :</h6>
-                <a href="index.php?action=adminPassword" class="text-white">Se connecter</a>
+                <a href="index.php?action=adminAccess" class="text-white">Se connecter</a>
             </div>
         </div>
     </div>

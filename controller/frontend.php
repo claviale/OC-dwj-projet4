@@ -53,31 +53,26 @@ function addComment($postId, $author, $comment)
 }
 
 
-function adminPassword()
+function adminAccess()
 {
     require("view/frontend/login.php");
 }
 
-function adminAccess($user, $password)
+function checkLogin()
 {
     $adminManager = new AdminManager();
-    $dataUser = $adminManager->getAdmin($user, $password);
+    $adminLog = $adminManager->getAdmin();
     
-    var_dump($dataUser);
-
-    if ($dataUser === false) {
-        throw new Exception("Connexion impossible !");
+    if ($adminLog['login'] === $_POST['user'] && $adminLog['password'] === $_POST['password']) {
+        //start session?
+        require("view/backend/admin.php");
     }
     else {
-        $_SESSION['utilisateur'] = $dataUser['id'];
-        header('Location: index.php?action=administration');
+        throw new Exception("L'identifiant et/ou le mot de passe sont incorrects.");
+        //mettre l'echo en variable pour l'appeler dans la vue
     }
-    
     
 }
 
-function displayAdminInterface() {
-    require("view/backend/admin.php");
-  }
   
 

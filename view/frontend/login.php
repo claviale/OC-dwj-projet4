@@ -23,7 +23,7 @@
         </div>
 
         <div class="col-6 mx-auto">
-            <form action="./index.php?action=connexion" method="post">
+            <form action="./index.php?action=adminLogin" method="post">
                 <div class="form-group">
                     <label for="user">Identifiant</label>
                     <input type="texte" id="user" class="form-control" name="user"/>
