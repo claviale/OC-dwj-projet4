@@ -1,4 +1,7 @@
 <?php
+
+session_start(); 
+
 require('controller/frontend.php');
 
 try {
@@ -45,6 +48,20 @@ try {
                 throw new Exception('Un ou plusieurs champs ne sont pas remplis.');
             }
         }
+        elseif ($_GET['action'] == 'administration') {
+            if (isset($_SESSION['LOGGED_USER'])) {
+                displayBack();
+            } else {
+                throw new Exception('Aucun utilisateur identifié.');
+            }
+        }
+        elseif (($_GET['action'] == 'logout')) {
+            if (isset($_SESSION['LOGGED_USER'])) {
+                session_destroy();
+                header('Location: index.php?action=home');
+            }
+        }
+
 
     }
     else {

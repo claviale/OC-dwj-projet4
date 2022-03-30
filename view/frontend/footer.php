@@ -10,7 +10,15 @@
             </div>
             <div class="col text-center my-auto">
                 <h6>Accès administrateur :</h6>
-                <a href="index.php?action=adminAccess" class="text-white">Se connecter</a>
+                
+        <?php 
+          if (isset($_SESSION["LOGGED_USER"])) {
+            echo '<a href="index.php?action=administration" class="text-white">Bonjour ' . $_SESSION["LOGGED_USER"];' </a>';
+          } else {
+            echo "<a href='index.php?action=adminAccess' class='text-white'>Se connecter</a>";
+          }
+        ?>
+
             </div>
         </div>
     </div>

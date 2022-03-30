@@ -1,7 +1,5 @@
 <?php
 
-session_start(); 
-
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
@@ -64,13 +62,17 @@ function checkLogin()
     $adminLog = $adminManager->getAdmin();
     
     if ($adminLog['login'] === $_POST['user'] && $adminLog['password'] === $_POST['password']) {
-        //start session?
+        $_SESSION['LOGGED_USER'] = $adminLog['login'];
         require("view/backend/admin.php");
     }
     else {
         throw new Exception("L'identifiant et/ou le mot de passe sont incorrects.");
     }
     
+}
+function displayBack ()
+{
+    require("view/backend/admin.php");
 }
 
   
