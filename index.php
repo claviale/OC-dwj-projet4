@@ -3,6 +3,8 @@
 session_start(); 
 
 require('controller/frontend.php');
+require('controller/backend.php');
+
 
 try {
     if (isset($_GET['action'])) {
@@ -61,7 +63,10 @@ try {
                 header('Location: index.php?action=home');
             }
         }
-
+        elseif ($_GET['action'] == 'chaptersView') {
+            chaptersView();
+        }
+     
 
     }
     else {
