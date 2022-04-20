@@ -66,6 +66,36 @@ try {
         elseif ($_GET['action'] == 'chaptersView') {
             chaptersView();
         }
+        elseif ($_GET['action'] == 'newChapterView') {
+            createNewChapterView();
+        }
+        elseif ($_GET['action'] == 'addNewChapter') {
+            if (!empty($_POST['id']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+                addChapter($_POST['id'], $_POST['title'], $_POST['content']);
+            }
+            else {
+                throw new Exception('Veuillez remplir tous les champs avant de valider la sauvegarde.');
+            }
+        }
+        elseif ($_GET['action'] == 'deleteChapter') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deleteChapter($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
+        elseif ($_GET['action'] == 'editChapterView') {
+            editChapterView();
+        }
+        elseif ($_GET['action'] == 'updateChapter') {
+            if (!empty($_POST['id']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+                editChapter($_POST['id'], $_POST['title'], $_POST['content']);
+            }
+            else {
+                throw new Exception('Veuillez remplir tous les champs avant de valider la sauvegarde.');
+            }
+        }
      
 
     }

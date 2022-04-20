@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mb-5 mt-2 text-end">
-            <button type="button" class="btn btn-primary">Créer un nouveau chapitre</button>
+            <a href="index.php?action=newChapterView"><button type="button" class="btn btn-primary">Créer un nouveau chapitre</button></a>
         </div>
     </div>
 </div>
@@ -29,7 +29,8 @@
                     <th scope="col">Titre</th>
                     <th scope="col">Résumé</th>
                     <th scope="col">Date de création</th>
-                    <th scope="col">Modifier/Supprimer</th>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
                     </tr>
                 </thead>
                 
@@ -44,13 +45,35 @@ while ($chapter = $chapters->fetch())
     }
 ?>
                     <tr>
-                    <th scope="row" class="col-1"><?= htmlspecialchars($chapter["id"]) ?></th>
-                    <td class="col-2"><?= htmlspecialchars($chapter["title"]) ?></td>
-                    <td  class="col-6"><?= htmlspecialchars($chapter["content"]) ?></td>
-                    <td  class="col-1"><?= htmlspecialchars($chapter["creation_date_fr"]) ?></td>
-                    <td class="col-2"><button type="button" class="btn btn-outline-primary my-1">Modifier</button></br><button type="button" class="btn btn-outline-primary my-1">Supprimer</button></td>
-                    </tr>
-                    
+                    <th scope="row" class="col-1"><?= nl2br(htmlspecialchars($chapter["id"])) ?></th>
+                    <td class="col-2"><?= nl2br(htmlspecialchars($chapter["title"])) ?></td>
+                    <td  class="col-6"><?= $chapter["content"] ?></td>
+                    <td  class="col-1"><?= nl2br(htmlspecialchars($chapter["creation_date_fr"])) ?></td>
+
+                    <td class="col-1"><a href="index.php?action=editChapterView&amp;id=<?=$chapter['id']?>"><button type="button" class="btn btn-outline-primary my-1">Modifier</button></a></td>
+
+                    <td class="col-1">
+                        <button type="button" class="btn btn-outline-primary my-1" data-bs-toggle="modal" data-bs-target="#deleteChapter<?=$chapter['id']?>">Supprimer</button>
+
+                        <div class="modal fade" id="deleteChapter<?=$chapter['id']?>" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteChapterTitle">Supprimer le chapitre</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                    <div class="modal-body">
+                                        Voulez-vous vraiment supprimer le chapitre numéro <?=$chapter['id']?> ?
+                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                    <a href="index.php?action=deleteChapter&amp;id=<?=$chapter['id']?>" ><button type="button" class="btn btn-primary">Valider la suppression</button></a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    </tr>            
                     
 <?php
 }
@@ -61,8 +84,6 @@ $chapters->closeCursor();
         </div>
     </div>
 </div>
-
-
 
 <?php $content = ob_get_clean(); ?>
 

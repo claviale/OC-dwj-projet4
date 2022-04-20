@@ -21,4 +21,33 @@ class PostManager extends Manager
         return $post;
     }
 
+    public function addPost($chapterId, $title, $content)
+    {
+        $db = $this->dbConnect();
+        $addChapter = $db->prepare('INSERT INTO posts (id, title, content, creation_date) VALUES (?, ?, ?, NOW())');
+        $addChapter->execute(array($chapterId, $title, $content));
+
+        header('Location: index.php?action=chaptersView');
+    }
+
+    public function deletePost($idChapter) 
+    {
+        $db = $this->dbConnect();
+        $deleteChapter = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $deleteChapter->execute(array($idChapter));
+
+        header('Location: index.php?action=chaptersView');
+
+    }
+
+    public function editPost($chapterId, $title, $content)
+    {
+        $db = $this->dbConnect();
+        $editChapter = $db->prepare('UPDATE posts SET title = ? , content = ? WHERE id = ? ');
+        $editChapter->execute(array($chapterId, $title, $content));
+
+        header('Location: index.php?action=chaptersView');
+    }
+
+    
 }
