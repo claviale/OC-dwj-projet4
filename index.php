@@ -86,18 +86,27 @@ try {
             }
         }
         elseif ($_GET['action'] == 'editChapterView') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
             editChapterView();
-        }
-        elseif ($_GET['action'] == 'updateChapter') {
-            if (!empty($_POST['id']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-                editChapter($_POST['id'], $_POST['title'], $_POST['content']);
             }
             else {
-                throw new Exception('Veuillez remplir tous les champs avant de valider la sauvegarde.');
+                throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
-     
-
+        elseif ($_GET['action'] == 'editChapter') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                if (!empty($_POST['titleUpdate']) && !empty($_POST['contentUpdate'])) {
+                    editChapter($_GET['id'], $_POST['titleUpdate'], $_POST['contentUpdate']);
+                }
+                else {
+                    throw new Exception('Tous les champs ne sont pas remplis !');
+                }
+            }
+            else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
+        
     }
     else {
         home();

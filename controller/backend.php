@@ -32,13 +32,18 @@ function deleteChapter($id)
 
 function editChapterView() {
     $postManager = new PostManager();
-    $post = $postManager->getPost($_GET['id']);
+    $chapter = $postManager->getPost($_GET['id']);
    
     require("view/backend/editChapter.php");
 }
 
-function editChapter($chapterId, $title, $content)
+function editChapter($id, $titleUpdate, $contentUpdate)
 {
     $editManager = new PostManager(); 
-    $chapter = $editManager->editPost($chapterId, $title, $content); 
+    $chapter = $editManager->editPost($id, $titleUpdate, $contentUpdate); 
+
+    
+
 }
+
+

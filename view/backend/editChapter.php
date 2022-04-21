@@ -11,13 +11,13 @@
 </div> 
 
 
-<form action="index.php?action=editChapter" method="post" class="container">
+<form action="index.php?action=editChapter&id=<?=$chapter['id']?>" method="post" class="container">
     <div class="form-group row my-5">
             <div class="col-3">
-                <input type="text" class="form-control" name="id" placeholder="Numéro du chapitre" value="<?= htmlspecialchars($post["id"]) ?>">
+                <input type="text" class="form-control" name="idUpdate" placeholder="Numéro du chapitre" value="<?= nl2br(htmlspecialchars($chapter['id'])) ?>" disabled="disabled" />
             </div>
             <div class="col-9">
-                <input type="text" class="form-control" name="title" placeholder="Titre du chapitre" value="<?= htmlspecialchars($post["title"]) ?>">
+                <input type="text" class="form-control" name="titleUpdate" placeholder="Titre du chapitre" value="<?= nl2br(htmlspecialchars($chapter['title'])) ?>"/>
             </div>
     </div>
     
@@ -25,7 +25,7 @@
     <div class="form-group">
         <div class="row">
             <div class="col-12 mx-auto">
-                <textarea id="basic-example" placeholder="Contenu du chapitre" name="content"><?= $post["content"] ?></textarea>
+                <textarea id="basic-example" placeholder="Contenu du chapitre" name="contentUpdate"><?= $chapter['content'] ?></textarea>
             </div>
         </div>
         <div class="row col-4 mx-auto">
@@ -34,7 +34,6 @@
         
     </div>
 </form>
-
 
 
 

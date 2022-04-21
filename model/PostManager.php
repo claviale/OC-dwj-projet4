@@ -21,11 +21,11 @@ class PostManager extends Manager
         return $post;
     }
 
-    public function addPost($chapterId, $title, $content)
+    public function addPost($id, $title, $content)
     {
         $db = $this->dbConnect();
         $addChapter = $db->prepare('INSERT INTO posts (id, title, content, creation_date) VALUES (?, ?, ?, NOW())');
-        $addChapter->execute(array($chapterId, $title, $content));
+        $addChapter->execute(array($id, $title, $content));
 
         header('Location: index.php?action=chaptersView');
     }
@@ -40,11 +40,11 @@ class PostManager extends Manager
 
     }
 
-    public function editPost($chapterId, $title, $content)
+    public function editPost($id, $title, $content)
     {
         $db = $this->dbConnect();
         $editChapter = $db->prepare('UPDATE posts SET title = ? , content = ? WHERE id = ? ');
-        $editChapter->execute(array($chapterId, $title, $content));
+        $editChapter->execute(array($title, $content, $id));
 
         header('Location: index.php?action=chaptersView');
     }
