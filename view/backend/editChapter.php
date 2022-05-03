@@ -14,7 +14,7 @@
 <form action="index.php?action=editChapter&id=<?=$chapter['id']?>" method="post" class="container">
     <div class="form-group row my-5">
             <div class="col-3">
-                <input type="text" class="form-control" name="idUpdate" placeholder="Numéro du chapitre" value="<?= nl2br(htmlspecialchars($chapter['id'])) ?>" disabled="disabled" />
+                <input type="text" class="form-control" name="num" placeholder="Numéro du chapitre" value="<?= nl2br(htmlspecialchars($chapter['num'])) ?>" />
             </div>
             <div class="col-9">
                 <input type="text" class="form-control" name="titleUpdate" placeholder="Titre du chapitre" value="<?= nl2br(htmlspecialchars($chapter['title'])) ?>"/>
@@ -28,9 +28,12 @@
                 <textarea id="basic-example" placeholder="Contenu du chapitre" name="contentUpdate"><?= $chapter['content'] ?></textarea>
             </div>
         </div>
-        <div class="row col-4 mx-auto">
-            <button type="submit" class="btn btn-primary my-4">Enregistrer les modifications</button>
+        <div class="row mb-5">
+            <button type="submit" class="btn btn-primary my-5 col-3 mx-auto">Enregistrer les modifications</button>
+            <button type="button" class="btn btn-outline-primary my-5 col-3 mx-auto"><a href="index.php?action=chaptersView">Annuler</a></button>
         </div>
+
+        
         
     </div>
 </form>

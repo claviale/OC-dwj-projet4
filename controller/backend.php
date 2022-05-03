@@ -37,12 +37,10 @@ function editChapterView() {
     require("view/backend/editChapter.php");
 }
 
-function editChapter($id, $titleUpdate, $contentUpdate)
+function editChapter($num, $titleUpdate, $contentUpdate, $id)
 {
     $editManager = new PostManager(); 
-    $chapter = $editManager->editPost($id, $titleUpdate, $contentUpdate); 
-
-    
+    $chapter = $editManager->editPost($num, $titleUpdate, $contentUpdate, $id); 
 
 }
 

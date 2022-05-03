@@ -45,7 +45,7 @@ while ($chapter = $chapters->fetch())
     }
 ?>
                     <tr>
-                    <th scope="row" class="col-1"><?= nl2br(htmlspecialchars($chapter["id"])) ?></th>
+                    <th scope="row" class="col-1"><?= nl2br(htmlspecialchars($chapter["num"])) ?></th>
                     <td class="col-2"><?= nl2br(htmlspecialchars($chapter["title"])) ?></td>
                     <td  class="col-6"><?= $chapter["content"] ?></td>
                     <td  class="col-1"><?= nl2br(htmlspecialchars($chapter["creation_date_fr"])) ?></td>
@@ -63,7 +63,7 @@ while ($chapter = $chapters->fetch())
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                     <div class="modal-body">
-                                        Voulez-vous vraiment supprimer le chapitre numéro <?=$chapter['id']?> ?
+                                        Voulez-vous vraiment supprimer le chapitre numéro <?=$chapter['num']?> ?
                                     </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
