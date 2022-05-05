@@ -20,4 +20,24 @@ class CommentManager extends Manager
 
         return $affectedLines;
     }
+
+    public function showComments()
+    {
+        $db = $this->dbConnect();
+        $comments = $db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY comment_date DESC LIMIT 0, 5');
+
+        return $comments;
+    }
+
+    public function deleteComment($idComment) 
+    {
+        $db = $this->dbConnect();
+        $deleteChapter = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $deleteChapter->execute(array($idComment));
+
+        header('Location: index.php?action=commentsView');
+
+    }
 }
+
+

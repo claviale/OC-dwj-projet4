@@ -25,7 +25,7 @@
             <table class="table table-hover table-bordered text-center">
                 <thead>
                     <tr class="table-primary align-middle">
-                    <th scope="col" class="py-3">#</th>
+                    <th scope="col" class="py-3">N° du chapitre</th>
                     <th scope="col">Titre</th>
                     <th scope="col">Résumé</th>
                     <th scope="col">Date de création</th>
@@ -45,7 +45,7 @@ while ($chapter = $chapters->fetch())
     }
 ?>
                     <tr>
-                    <th scope="row" class="col-1"><?= nl2br(htmlspecialchars($chapter["num"])) ?></th>
+                    <th scope="row" class="col-1"><?= nl2br(htmlspecialchars($chapter["id"])) ?></th>
                     <td class="col-2"><?= nl2br(htmlspecialchars($chapter["title"])) ?></td>
                     <td  class="col-6"><?= $chapter["content"] ?></td>
                     <td  class="col-1"><?= nl2br(htmlspecialchars($chapter["creation_date_fr"])) ?></td>
@@ -63,7 +63,7 @@ while ($chapter = $chapters->fetch())
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                     <div class="modal-body">
-                                        Voulez-vous vraiment supprimer le chapitre numéro <?=$chapter['num']?> ?
+                                        Voulez-vous vraiment supprimer le chapitre numéro <?=$chapter['id']?> ?
                                     </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>

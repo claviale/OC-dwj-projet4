@@ -18,16 +18,17 @@ function createNewChapterView() {
     require("view/backend/createChapter.php");
 }
 
-function addChapter($chapterId, $title, $content)
+function addChapter($title, $content)
 {
     $addManager = new PostManager(); 
-    $chapter = $addManager->addPost($chapterId, $title, $content); 
+    $chapter = $addManager->addPost($title, $content); 
 }
 
 function deleteChapter($id)
 {
     $deleteManager = new PostManager(); 
     $chapter = $deleteManager->deletePost($id); 
+    
 }
 
 function editChapterView() {
@@ -37,11 +38,24 @@ function editChapterView() {
     require("view/backend/editChapter.php");
 }
 
-function editChapter($num, $titleUpdate, $contentUpdate, $id)
+function editChapter($titleUpdate, $contentUpdate, $id)
 {
     $editManager = new PostManager(); 
-    $chapter = $editManager->editPost($num, $titleUpdate, $contentUpdate, $id); 
+    $chapter = $editManager->editPost($titleUpdate, $contentUpdate, $id); 
 
 }
 
+function commentsView()
+{
+    $commentManager = new CommentManager();
+    $comments = $commentManager->showComments();
+
+    require("view/backend/comments.php");
+}
+
+function deleteComment($id)
+{
+    $deleteManager = new CommentManager(); 
+    $comment = $deleteManager->deleteComment($id); 
+}
 

@@ -6,7 +6,7 @@ class PostManager extends Manager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, num, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+        $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
 
         return $req;
     }
@@ -14,18 +14,18 @@ class PostManager extends Manager
     public function getPost($postId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, num, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
 
         return $post;
     }
 
-    public function addPost($num, $title, $content)
+    public function addPost($title, $content)
     {
         $db = $this->dbConnect();
-        $addChapter = $db->prepare('INSERT INTO posts (num, title, content, creation_date) VALUES (?, ?, ?, NOW())');
-        $addChapter->execute(array($num, $title, $content));
+        $addChapter = $db->prepare('INSERT INTO posts (title, content, creation_date) VALUES (?, ?, NOW())');
+        $addChapter->execute(array($title, $content));
 
         header('Location: index.php?action=chaptersView');
     }
@@ -40,11 +40,11 @@ class PostManager extends Manager
 
     }
 
-    public function editPost($id, $num, $title, $content)
+    public function editPost($id, $title, $content)
     {
         $db = $this->dbConnect();
-        $editChapter = $db->prepare('UPDATE posts SET num = ? , title = ? , content = ? WHERE id = ? ');
-        $editChapter->execute(array($num, $title, $content, $id));
+        $editChapter = $db->prepare('UPDATE posts SET title = ? , content = ? WHERE id = ? ');
+        $editChapter->execute(array($title, $content, $id));
 
         header('Location: index.php?action=chaptersView');
     }

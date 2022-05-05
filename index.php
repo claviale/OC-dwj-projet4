@@ -70,8 +70,8 @@ try {
             createNewChapterView();
         }
         elseif ($_GET['action'] == 'addNewChapter') {
-            if (!empty($_POST['num']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-                addChapter($_POST['num'], $_POST['title'], $_POST['content']);
+            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                addChapter($_POST['title'], $_POST['content']);
             }
             else {
                 throw new Exception('Veuillez remplir tous les champs avant de valider la sauvegarde.');
@@ -95,12 +95,23 @@ try {
         }
         elseif ($_GET['action'] == 'editChapter') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['num']) && !empty($_POST['titleUpdate']) && !empty($_POST['contentUpdate'])) {
-                    editChapter($_GET['id'], $_POST['num'], $_POST['titleUpdate'], $_POST['contentUpdate']);
+                if (!empty($_POST['titleUpdate']) && !empty($_POST['contentUpdate'])) {
+                    editChapter($_GET['id'], $_POST['titleUpdate'], $_POST['contentUpdate']);
                 }
                 else {
                     throw new Exception('Tous les champs ne sont pas remplis !');
                 }
+            }
+            else {
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
+        elseif ($_GET['action'] == 'commentsView') {
+            commentsView();
+        }
+        elseif ($_GET['action'] == 'deleteComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                deleteComment($_GET['id']);
             }
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');

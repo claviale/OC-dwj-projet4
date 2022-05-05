@@ -13,9 +13,6 @@
 
 <form action="index.php?action=editChapter&id=<?=$chapter['id']?>" method="post" class="container">
     <div class="form-group row my-5">
-            <div class="col-3">
-                <input type="text" class="form-control" name="num" placeholder="Numéro du chapitre" value="<?= nl2br(htmlspecialchars($chapter['num'])) ?>" />
-            </div>
             <div class="col-9">
                 <input type="text" class="form-control" name="titleUpdate" placeholder="Titre du chapitre" value="<?= nl2br(htmlspecialchars($chapter['title'])) ?>"/>
             </div>

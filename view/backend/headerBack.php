@@ -19,7 +19,7 @@
                                 <a class="nav-link" href="index.php?action=chaptersView">Chapitres</a>
                             </li>
                             <li class="nav-item mx-sm-4">
-                                <a class="nav-link" href="">Commentaires</a>
+                                <a class="nav-link" href="index.php?action=commentsView">Commentaires</a>
                             </li>
                         </ul>
                         

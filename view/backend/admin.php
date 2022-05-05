@@ -11,7 +11,7 @@
             <div class="col-12">
                 <p class="my-3">Bienvenue dans l'espace administration, retrouvez ici toutes les fonctionnalités de votre blog :</p>   
                 <a href="index.php?action=chaptersView"><button type="button" class="btn btn-outline-primary col-7 my-3">Gestion des chapitres</button></a>      
-                <button type="button" class="btn btn-outline-primary col-7 my-3">Gestion des commentaires</button>      
+                <a href="index.php?action=commentsView"><button type="button" class="btn btn-outline-primary col-7 my-3">Gestion des commentaires</button></a>      
             </div> 
         </div>
 </div> 
