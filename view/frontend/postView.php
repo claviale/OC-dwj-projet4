@@ -37,7 +37,7 @@
 
     <div class="container">
         <div class="row">
-            <div class=" col-6 mx-auto border border-secondary rounded my-4">
+            <div class=" col-6 mx-auto border border-secondary rounded my-5">
                 <h3 class="m-3">Commentaires</h3>
 
                 <form action="index.php?action=addComment&amp;id=<?= $post["id"] ?>" method="post">
@@ -62,8 +62,18 @@
 while ($comment = $comments->fetch())
 {
 ?>
-    <p><strong><?= htmlspecialchars($comment["author"]) ?></strong> le <?= $comment["comment_date_fr"] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment["comment"])) ?></p>
+ <div class="container">
+        <div class="row">
+            <div class="col-8 border mx-auto my-4">
+                <div class="news text-justify">
+                    <p><strong><?= htmlspecialchars($comment["author"]) ?></strong> le <?= $comment["comment_date_fr"] ?></p>
+                    <p><?= nl2br(htmlspecialchars($comment["comment"])) ?></p>
+                </div>
+
+            </div>
+        </div>
+    </div>     
+    
 <?php
 }
 ?>
