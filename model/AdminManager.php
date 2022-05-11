@@ -12,8 +12,5 @@ class AdminManager extends Manager
         return $adminLog;
     }
 
-    
-    
-
 }
 

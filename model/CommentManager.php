@@ -32,12 +32,23 @@ class CommentManager extends Manager
     public function deleteComment($idComment) 
     {
         $db = $this->dbConnect();
-        $deleteChapter = $db->prepare('DELETE FROM comments WHERE id = ?');
-        $deleteChapter->execute(array($idComment));
+        $deleteComment = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $deleteComment->execute(array($idComment));
 
         header('Location: index.php?action=commentsView');
 
     }
+
+    public function deleteCommentPost($idPost) 
+    {
+        $db = $this->dbConnect();
+        $deleteCommentPost = $db->prepare('DELETE FROM comments WHERE post_id = ?');
+        $deleteCommentPost->execute(array($idPost));
+
+        header('Location: index.php?action=chaptersView');
+
+    }
+
 }
 
 

@@ -80,6 +80,7 @@ try {
         elseif ($_GET['action'] == 'deleteChapter') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 deleteChapter($_GET['id']);
+                deleteCommentPost($_GET['id']);
             }
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');
