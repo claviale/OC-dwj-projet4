@@ -17,7 +17,7 @@
             <table class="table table-hover table-bordered text-center">
                 <thead>
                     <tr class="table-primary align-middle">
-                    <th scope="col" class="py-3">N° du chapitre</th>
+                    <th scope="col" class="py-3">Titre du chapitre</th>
                     <th scope="col">Auteur du commentaire</th>
                     <th scope="col">Commentaire</th>
                     <th scope="col">Date</th>
@@ -33,8 +33,8 @@ while ($comment = $comments->fetch())
     
 ?>
                     <tr>
-                    <th scope="row" class="col-1"><?= nl2br(htmlspecialchars($comment["post_id"])) ?></th>
-                    <td class="col-2"><?= nl2br(htmlspecialchars($comment["author"])) ?></td>
+                    <td class="col-2"><?= nl2br(htmlspecialchars($comment["title"])) ?></td>
+                    <td class="col-1"><?= nl2br(htmlspecialchars($comment["author"])) ?></td>
                     <td  class="col-6"><?= $comment["comment"] ?></td>
                     <td  class="col-1"><?= nl2br(htmlspecialchars($comment["comment_date_fr"])) ?></td>
 

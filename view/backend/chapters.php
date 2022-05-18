@@ -25,8 +25,7 @@
             <table class="table table-hover table-bordered text-center">
                 <thead>
                     <tr class="table-primary align-middle">
-                    <th scope="col" class="py-3">N° du chapitre</th>
-                    <th scope="col">Titre</th>
+                    <th scope="col" class="py-3">Titre</th>
                     <th scope="col">Résumé</th>
                     <th scope="col">Date de création</th>
                     <th scope="col">Modifier</th>
@@ -38,16 +37,15 @@
                 <?php
 while ($chapter = $chapters->fetch())
 {
-    $nbChar = 1000;
+    $nbChar = 700;
     
     if(strlen($chapter["content"]) >= $nbChar) {
     $chapter["content"] = substr($chapter["content"], 0, $nbChar).' [...]';
     }
 ?>
                     <tr>
-                    <th scope="row" class="col-1"><?= nl2br(htmlspecialchars($chapter["id"])) ?></th>
-                    <td class="col-2"><?= nl2br(htmlspecialchars($chapter["title"])) ?></td>
-                    <td  class="col-6"><?= $chapter["content"] ?></td>
+                    <td scope="row" class="col-2"><?= nl2br(htmlspecialchars($chapter["title"])) ?></td>
+                    <td  class="col-7"><?= $chapter["content"] ?></td>
                     <td  class="col-1"><?= nl2br(htmlspecialchars($chapter["creation_date_fr"])) ?></td>
 
                     <td class="col-1"><a href="index.php?action=editChapterView&amp;id=<?=$chapter['id']?>"><button type="button" class="btn btn-outline-primary my-1">Modifier</button></a></td>

@@ -24,7 +24,7 @@ class CommentManager extends Manager
     public function showComments()
     {
         $db = $this->dbConnect();
-        $comments = $db->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments ORDER BY comment_date DESC');
+        $comments = $db->query('SELECT comments.id, post_id, title, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments INNER JOIN posts ON comments.post_id = posts.id ORDER BY comment_date DESC');
 
         return $comments;
     }
