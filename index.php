@@ -115,7 +115,15 @@ try {
                 deleteComment($_GET['id']);
             }
             else {
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        }
+        elseif ($_GET['action'] == 'reportComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                reportComment($_GET['id']);
+            }
+            else {
+                throw new Exception('Aucun identifiant de commentaire envoyé');
             }
         }
         

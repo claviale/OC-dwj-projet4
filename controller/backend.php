@@ -65,3 +65,9 @@ function deleteCommentPost($id)
     $commentsPost = $deleteManager->deleteCommentPost($id); 
 }
 
+function reportComment($id)
+{
+    $reportManager = new CommentManager(); 
+    $report = $reportManager->reportComment($id); 
+}
+

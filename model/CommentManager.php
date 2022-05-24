@@ -6,7 +6,7 @@ class CommentManager extends Manager
     public function getComments($postId)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr, report FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
         $comments->execute(array($postId));
 
         return $comments;
@@ -24,7 +24,7 @@ class CommentManager extends Manager
     public function showComments()
     {
         $db = $this->dbConnect();
-        $comments = $db->query('SELECT comments.id, post_id, title, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments INNER JOIN posts ON comments.post_id = posts.id ORDER BY comment_date DESC');
+        $comments = $db->query('SELECT comments.id, post_id, title, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr, report FROM comments INNER JOIN posts ON comments.post_id = posts.id ORDER BY comment_date DESC');
 
         return $comments;
     }
@@ -46,6 +46,16 @@ class CommentManager extends Manager
         $deleteCommentPost->execute(array($idPost));
 
         header('Location: index.php?action=chaptersView');
+
+    }
+
+    public function reportComment($idComment) 
+    {
+        $db = $this->dbConnect();
+        $deleteComment = $db->prepare('UPDATE comments SET report = report + 1 WHERE id = ?');
+        $deleteComment->execute(array($idComment));
+
+        header('Location: index.php?action=listPosts');
 
     }
 

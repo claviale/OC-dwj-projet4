@@ -17,21 +17,25 @@
 <?php
 while ($data = $posts->fetch())
 {
+    $nbChar = 1500;
+    
+    if(strlen($data["content"]) >= $nbChar) {
+    $data["content"] = substr($data["content"], 0, $nbChar).' [...]';
+    }
 ?>
 <section class="content">
     <div class="container">
         <div class="row">
-            <div class="news col-10 mx-auto">
+            <div class="news col-9 mx-auto">
                 <h3>
                     <?= htmlspecialchars($data["title"]) ?>
                     <em>le <?= $data["creation_date_fr"] ?></em>
                 </h3>
                 
-                <p>
-                    <?= nl2br($data["content"]) ?>
-                    <br />
-                    <em><a href="index.php?action=post&amp;id=<?= $data["id"] ?>">Commentaires</a></em>
-                </p>
+                <p><?= nl2br($data["content"])?></p>
+                    
+                <a href="index.php?action=post&amp;id=<?= $data["id"] ?>">Lire le chapitre</a>
+                
             </div>
         </div>
     </div>

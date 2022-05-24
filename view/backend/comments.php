@@ -30,15 +30,20 @@
                 <?php
 while ($comment = $comments->fetch())
 {
+    if (($comment["report"]) == 0){
+        $color = "green";
+    }else if (($comment["report"]) >= 1 && ($comment["report"]) <= 5) { 
+            $color = "orange";}
+            else{ $color = "red";}
     
 ?>
                     <tr>
-                    <td class="col-2"><?= nl2br(htmlspecialchars($comment["title"])) ?></td>
-                    <td class="col-1"><?= nl2br(htmlspecialchars($comment["author"])) ?></td>
+                    <td class="col-2"><?= nl2br(htmlspecialchars($comment["title"]))?></td>
+                    <td class="col-1"><?= nl2br(htmlspecialchars($comment["author"]))?></td>
                     <td  class="col-6"><?= $comment["comment"] ?></td>
-                    <td  class="col-1"><?= nl2br(htmlspecialchars($comment["comment_date_fr"])) ?></td>
+                    <td  class="col-1"><?= nl2br(htmlspecialchars($comment["comment_date_fr"]))?></td>
 
-                    <td class="col-1">Nb de signalements</td>
+                    <td class="col-1" style="color: <?= $color;?>"><b><?= nl2br(htmlspecialchars($comment["report"]))?></b></td>
 
                     <td class="col-1">
                         <button type="button" class="btn btn-outline-primary my-1" data-bs-toggle="modal" data-bs-target="#deleteComment<?=$comment['id']?>">Supprimer</button>
