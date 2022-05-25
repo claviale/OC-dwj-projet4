@@ -44,9 +44,9 @@ while ($chapter = $chapters->fetch())
     }
 ?>
                     <tr>
-                    <td scope="row" class="col-2"><?= nl2br(htmlspecialchars($chapter["title"])) ?></td>
+                    <td scope="row" class="col-2"><?= htmlspecialchars($chapter["title"])?></td>
                     <td  class="col-7"><?= $chapter["content"] ?></td>
-                    <td  class="col-1"><?= nl2br(htmlspecialchars($chapter["creation_date_fr"])) ?></td>
+                    <td  class="col-1"><?= $chapter["creation_date_fr"]?></td>
 
                     <td class="col-1"><a href="index.php?action=editChapterView&amp;id=<?=$chapter['id']?>"><button type="button" class="btn btn-outline-primary my-1">Modifier</button></a></td>
 

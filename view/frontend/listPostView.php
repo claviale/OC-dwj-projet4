@@ -17,7 +17,7 @@
 <?php
 while ($data = $posts->fetch())
 {
-    $nbChar = 1500;
+    $nbChar = 1400;
     
     if(strlen($data["content"]) >= $nbChar) {
     $data["content"] = substr($data["content"], 0, $nbChar).' [...]';
@@ -32,7 +32,7 @@ while ($data = $posts->fetch())
                     <em>le <?= $data["creation_date_fr"] ?></em>
                 </h3>
                 
-                <p><?= nl2br($data["content"])?></p>
+                <p><?= $data["content"]?></p>
                     
                 <a href="index.php?action=post&amp;id=<?= $data["id"] ?>">Lire le chapitre</a>
                 

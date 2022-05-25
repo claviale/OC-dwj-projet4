@@ -25,12 +25,13 @@
                 <textarea id="basic-example" placeholder="Contenu du chapitre" name="content"></textarea>
             </div>
         </div>
-        <div class="row mb-5">
-            <button type="submit" class="btn btn-primary my-5 col-3 mx-auto">Enregistrer le nouveau chapitre</button>
-            <button type="button" class="btn btn-outline-primary my-5 col-3 mx-auto"><a href="index.php?action=chaptersView">Annuler</a></button>
+        <div class="row">
+            <div class="col-12 mx-auto text-center my-5">
+                <button type="submit" class="btn btn-primary mx-3">Enregistrer le nouveau chapitre</button>
+                <a href="index.php?action=chaptersView">Annuler</a>
+            </div>
         </div>
-        
-        
+
     </div>
 </form>
 

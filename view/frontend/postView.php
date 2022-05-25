@@ -27,7 +27,7 @@
                         <em>le <?= $post["creation_date_fr"] ?></em>
                     </h3>
                     <p>
-                        <?= nl2br($post["content"]) ?>
+                        <?= $post["content"]?>
                     </p>
                 </div>
 
@@ -68,7 +68,7 @@ while ($comment = $comments->fetch())
                 <div class="news text-justify">
                     <p><strong><?= htmlspecialchars($comment["author"]) ?></strong> le <?= $comment["comment_date_fr"] ?></p>
                     <p><?= nl2br(htmlspecialchars($comment["comment"])) ?></p>
-                    <button type="button" class="btn btn-outline-primary py-1 my-2" data-bs-toggle="modal" data-bs-target="#reportComment<?=$comment['id']?>">Signaler le commentaire</button>
+                    <i><a href= "#reportComment<?=$comment['id']?>"class="py-1 my-2" data-bs-toggle="modal" data-bs-target="#reportComment<?=$comment['id']?>">Signaler le commentaire</a></i>
 
                         <div class="modal fade" id="reportComment<?=$comment['id']?>" tabindex="-1">
                             <div class="modal-dialog">

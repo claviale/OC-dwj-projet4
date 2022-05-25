@@ -38,12 +38,12 @@ while ($comment = $comments->fetch())
     
 ?>
                     <tr>
-                    <td class="col-2"><?= nl2br(htmlspecialchars($comment["title"]))?></td>
-                    <td class="col-1"><?= nl2br(htmlspecialchars($comment["author"]))?></td>
-                    <td  class="col-6"><?= $comment["comment"] ?></td>
-                    <td  class="col-1"><?= nl2br(htmlspecialchars($comment["comment_date_fr"]))?></td>
+                    <td class="col-2"><?= htmlspecialchars($comment["title"])?></td>
+                    <td class="col-1"><?= htmlspecialchars($comment["author"])?></td>
+                    <td  class="col-6"><?= nl2br(htmlspecialchars($comment["comment"]))?></td>
+                    <td  class="col-1"><?= htmlspecialchars($comment["comment_date_fr"])?></td>
 
-                    <td class="col-1" style="color: <?= $color;?>"><b><?= nl2br(htmlspecialchars($comment["report"]))?></b></td>
+                    <td class="col-1" style="color: <?= $color;?>"><b><?= $comment["report"]?></b></td>
 
                     <td class="col-1">
                         <button type="button" class="btn btn-outline-primary my-1" data-bs-toggle="modal" data-bs-target="#deleteComment<?=$comment['id']?>">Supprimer</button>
