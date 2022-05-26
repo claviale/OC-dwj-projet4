@@ -65,9 +65,12 @@ function deleteCommentPost($id)
     $commentsPost = $deleteManager->deleteCommentPost($id); 
 }
 
-function reportComment($id)
+function reportComment($id, $post_Id)
 {
     $reportManager = new CommentManager(); 
     $report = $reportManager->reportComment($id); 
+
+    header('Location: index.php?action=post&id=' . $post_Id);
+
 }
 

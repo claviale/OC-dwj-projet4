@@ -120,7 +120,7 @@ try {
         }
         elseif ($_GET['action'] == 'reportComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                reportComment($_GET['id']);
+                reportComment($_GET['id'], $_GET['post_id']);
             }
             else {
                 throw new Exception('Aucun identifiant de commentaire envoyé');

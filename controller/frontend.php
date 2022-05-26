@@ -70,7 +70,7 @@ function checkLogin()
     }
     
 }
-function displayBack ()
+function displayBack()
 {
     require("view/backend/admin.php");
 }

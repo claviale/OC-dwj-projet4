@@ -61,6 +61,7 @@
 <?php
 while ($comment = $comments->fetch())
 {
+    
 ?>
  <div class="container">
         <div class="row">
@@ -82,7 +83,7 @@ while ($comment = $comments->fetch())
                                     </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                    <a href="index.php?action=reportComment&amp;id=<?=$comment['id']?>" ><button type="button" class="btn btn-primary">Valider le signalement</button></a>
+                                    <a href="index.php?action=reportComment&amp;id=<?=$comment['id']?>&amp;post_id=<?=$comment['post_id']?>" ><button type="button" class="btn btn-primary">Valider le signalement</button></a>
                                 </div>
                                 </div>
                             </div>
