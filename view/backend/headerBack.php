@@ -7,11 +7,11 @@
                     <a class="navbar-brand ms-sm-2" href="index.php">
                         <div><small>Retourner au blog </div></small>       
                     </a>
-                    <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarContent">
+                    <button class="navbar-toggler navbar-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div id="navbarContent" class="collapse navbar-collapse">
-                        <ul class="navbar-nav ms-auto">
+                        <ul class="navbar-nav ms-auto text-center">
                         <li class="nav-item active mx-sm-4 ">
                                 <a class="nav-link" href="index.php?action=administration">Accueil</a>
                             </li>    
@@ -23,7 +23,7 @@
                             </li>
                         </ul>
                         
-                        <div>
+                        <div class="text-center">
                             <?php 
                             if (isset($_SESSION["LOGGED_USER"])) {
                                 ?> 
