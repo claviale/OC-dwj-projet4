@@ -13,7 +13,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 mb-5">
+        <div class="col-12 mb-5 table-responsive-md">
             <table class="table table-hover table-bordered text-center">
                 <thead>
                     <tr class="table-primary align-middle">

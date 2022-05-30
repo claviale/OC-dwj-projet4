@@ -21,7 +21,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 mb-5">
+        <div class="col-12 mb-5 table-responsive-md">
             <table class="table table-hover table-bordered text-center">
                 <thead>
                     <tr class="table-primary align-middle">
@@ -44,8 +44,8 @@ while ($chapter = $chapters->fetch())
     }
 ?>
                     <tr>
-                    <td scope="row" class="col-2"><?= htmlspecialchars($chapter["title"])?></td>
-                    <td  class="col-7"><?= $chapter["content"] ?></td>
+                    <td scope="row" class="col-sm-2 col-1"><?= htmlspecialchars($chapter["title"])?></td>
+                    <td  class="col-sm-7 col-8"><?= $chapter["content"] ?></td>
                     <td  class="col-1"><?= $chapter["creation_date_fr"]?></td>
 
                     <td class="col-1"><a href="index.php?action=editChapterView&amp;id=<?=$chapter['id']?>"><button type="button" class="btn btn-outline-primary my-1">Modifier</button></a></td>
