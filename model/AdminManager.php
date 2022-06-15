@@ -12,5 +12,14 @@ class AdminManager extends Manager
         return $adminLog;
     }
 
+    public function editAdminPassword($login, $password)
+    {
+        $db = $this->dbConnect();
+        $editChapter = $db->prepare('UPDATE admin SET password = ? WHERE login = ?');
+        $editChapter->execute(array($password, $login));
+
+        header('Location: index.php?action=adminAccess');
+    }
+
 }
 

@@ -41,10 +41,22 @@ try {
         elseif ($_GET['action'] == 'adminAccess') {
             adminAccess();
         }
+        elseif ($_GET['action'] == 'editAccess') {
+            editPWAccess();
+        }
         elseif ($_GET['action'] == 'adminLogin') {
             if (!empty($_POST['user']) && !empty($_POST['password'])) {
                
                 checkLogin();
+            }
+            else {
+                throw new Exception('Un ou plusieurs champs ne sont pas remplis.');
+            }
+        }
+        elseif ($_GET['action'] == 'editPassword') {
+            if (!empty($_POST['user']) && !empty($_POST['password']) && !empty($_POST['newPassword'])) {
+               
+                checkEditPassword();
             }
             else {
                 throw new Exception('Un ou plusieurs champs ne sont pas remplis.');

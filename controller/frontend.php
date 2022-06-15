@@ -50,6 +50,10 @@ function addComment($postId, $author, $comment)
     }
 }
 
+function displayBack()
+{
+    require("view/backend/admin.php");
+}
 
 function adminAccess()
 {
@@ -61,19 +65,39 @@ function checkLogin()
     $adminManager = new AdminManager();
     $adminLog = $adminManager->getAdmin();
     
-    if ($adminLog['login'] === $_POST['user'] && $adminLog['password'] === $_POST['password']) {
+    if ($adminLog['login'] === $_POST['user'] && password_verify($_POST['password'], $adminLog['password'])) {
         $_SESSION['LOGGED_USER'] = $adminLog['login'];
         require("view/backend/admin.php");
     }
     else {
         throw new Exception("L'identifiant et/ou le mot de passe sont incorrects.");
-    }
-    
+    } 
 }
-function displayBack()
+
+function editPWAccess()
 {
-    require("view/backend/admin.php");
+    require("view/frontend/editPassword.php");
 }
+
+function checkEditPassword()
+{
+    $adminManager = new AdminManager();
+    $adminLog = $adminManager->getAdmin();
+    
+    if ($adminLog['login'] === $_POST['user'] && password_verify($_POST['password'], $adminLog['password'])) {
+        $_SESSION['LOGGED_USER'] = $adminLog['login'];
+        $newPassword = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+        $adminLogin = $_POST['user'];
+
+        $adminManager = new AdminManager();
+        $adminLog = $adminManager->editAdminPassword($adminLogin, $newPassword);
+
+    }
+    else {
+        throw new Exception("L'identifiant et/ou le mot de passe sont incorrects.");
+    } 
+}
+
 
 
 
